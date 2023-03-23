@@ -2,7 +2,8 @@ import express from 'express';
 
 
 const router = express.Router()
-import {getAllUsers,registerUsers} from '../controllers/userController.js';
+import {getAllUsers,registerUsers,loginUser,getMyDetails,logout} from '../controllers/userController.js';
+import { isAuth } from '../middlewares/isAuth.js';
 
 
 
@@ -14,5 +15,11 @@ router.get('/',(req,res)=>{
  router.get('/all',getAllUsers)
  
  router.post('/new',registerUsers)
+
+ router.post('/login',loginUser)
+
+ router.get('/me',isAuth,getMyDetails)
+
+ router.get('/logout', logout)
 
  export default router;
