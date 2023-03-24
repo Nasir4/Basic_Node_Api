@@ -4,5 +4,5 @@ import {dbConnection} from './utils/dbConnection.js'
 
 dbConnection()
 app.listen(process.env.PORT,()=>{
-    console.log('Application Running on 4000...!')
+    console.log(`Server is Running on port:${process.env.PORT} in ${process.env.NODE_ENV} Mode`)
 })
